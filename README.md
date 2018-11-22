@@ -1,4 +1,4 @@
 # ReactHooks_Sample
 
 
-This is a sample to demonstrate hooks usage in React applications. 
+This is a sample to demonstrate hooks and Suspense usage in React applications. 
