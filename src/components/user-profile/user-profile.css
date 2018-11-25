@@ -1,0 +1,9 @@
+.userprofile_container {
+  display: flex;
+}
+
+.userprofile_profile {
+  width: 50%;
+  max-width: 500px;
+  max-height: 100vh;
+}

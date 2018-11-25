@@ -1,18 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
+import UserProfile from "./components/user-profile/user-profile.jsx";
 import "./styles.css";
+import "font-awesome/css/font-awesome.min.css";
 
 function App() {
-  const [count, updateCount] = useState(0);
-
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>You clicked {count} times!</h2>
-
-      <button onClick={() => updateCount(c => c - 1)}>Decrement</button>
-      <button onClick={() => updateCount(c => c + 1)}>Increment</button>
+      <Router>
+        <Route path="/" component={UserProfile} />
+      </Router>
     </div>
   );
 }

@@ -1,0 +1,6 @@
+.image_avatar {
+  width: inherit;
+  height: inherit;
+  max-width: 200px;
+  max-height: 200px;
+}
