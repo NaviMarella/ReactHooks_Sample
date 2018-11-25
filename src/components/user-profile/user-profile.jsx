@@ -1,8 +1,8 @@
-import React, { useReducer, useEffect } from "react";
-import Profile from "../profile/profile";
+import React, { useEffect, useReducer } from "react";
 import { getUserProfile } from "../../config/configuration";
-
+import Profile from "../Profile/profile";
 import "./user-profile.css";
+
 
 const initialState = {
   currentUser: null,
