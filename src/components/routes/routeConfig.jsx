@@ -1,12 +1,13 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
 
 const RouteConfig = (props) => {
     const { routes, otherProps } = props;
     return (
         <div>
+            <Route exact path="/" render={() => <Redirect to="/overview" /> } />
             {
-                routes.map((routeInfo, index) =>
+                routes && routes.map((routeInfo, index) =>
                     <Route exact key={"route-" + index} path={routeInfo.path} component={routeInfo.component} {...otherProps}/>
                 )
             }
@@ -18,7 +19,7 @@ const RouteConfig = (props) => {
 export default RouteConfig;
 
 export const routes = [{
-        path: '/',
+        path: '/overview',
         displayName: 'Overview',
         component: () => <div> Overview </div>
     },
