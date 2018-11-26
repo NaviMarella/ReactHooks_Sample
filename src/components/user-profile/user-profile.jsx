@@ -1,6 +1,12 @@
 import React, { useEffect, useReducer } from "react";
-import { getUserProfile } from "../../config/configuration";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import {
+  getUserProfile
+} from "../../config/configuration";
+import Divider from "../divider/divider";
 import Profile from "../Profile/profile";
+import RouteConfig, { routes } from "../routes/routeConfig";
+import Tabs from "../Tabs/tabs";
 import "./user-profile.css";
 
 
@@ -51,11 +57,25 @@ const UserProfile = () => {
   return !loading ? (
     <div>Loading....</div>
   ) : (
-    <div className="userprofile_container">
-      <div className="userprofile_profile">
-        <Profile userInfo={userInfo} />
-      </div>
-    </div>
+      <Route path="/" render={() => {
+        return (
+          <div className="userprofile_container">
+            <div className="userprofile_profile">
+              <Profile userInfo={userInfo} />
+            </div>
+
+            <div className="userprofile_info_container">
+              <div className="userprofile_options">
+                <Tabs routes={routes}/>
+              </div>
+              <Divider />
+              <div className="userProfile_info">
+                    <RouteConfig routes={routes} userInfo={userInfo}/>
+              </div>
+            </div>
+          </div>
+        )
+      }} />
   );
 };
 

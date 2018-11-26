@@ -1,16 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import UserProfile from "./components/user-profile/user-profile.jsx";
 import "./styles.css";
-
+import {
+  BrowserRouter as Router,
+} from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Route path="/" component={UserProfile} />
-      </Router>
+    <Router>
+      <UserProfile />
+    </Router>
     </div>
   );
 }

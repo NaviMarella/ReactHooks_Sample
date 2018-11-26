@@ -11,9 +11,9 @@ const Profile = ({ userInfo }) => {
       <Avatar url={url} name={name} />
       <h2>{name} </h2>
       <span className="text_align-margin">{login}</span>
-      <span>{bio}</span>
+      <span className="text_align-margin">{bio}</span>
       <Divider />
-      <div class="profile_location">
+      <div className="profile_location">
         <span className="text_align-margin">{company}</span>
         <span>{location}</span>
       </div>
