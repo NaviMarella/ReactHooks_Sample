@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
 
-const RouteConfig = (props) => {
+export const RouteConfig = (props) => {
     const { routes, otherProps } = props;
     return (
         <div>
@@ -14,9 +14,6 @@ const RouteConfig = (props) => {
         </div>
     )
 }
-
-
-export default RouteConfig;
 
 export const routes = [{
         path: '/overview',

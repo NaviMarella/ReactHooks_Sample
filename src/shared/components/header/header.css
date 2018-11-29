@@ -1,0 +1,11 @@
+.main-header {
+    top: 0;
+    background: black;
+    color: white;
+    padding: 1px;
+}
+
+.header-title {
+    text-align: left;
+    margin-left: 8%;
+}

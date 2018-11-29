@@ -1,9 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./tabs.css";
+import "./NavBar.css";
 
-const Tabs = ({ routes }) => {
-
+const NavBar = ({ routes }) => {
     return (
         <div className="tabs_options">
             <ul>
@@ -22,4 +21,4 @@ const Tabs = ({ routes }) => {
     );
 };
 
-export default Tabs;
+export default NavBar;

@@ -1,13 +1,12 @@
 import React, { useEffect, useReducer } from "react";
-import {
-  getUserProfile
-} from "../../config/configuration";
-import Divider from "../divider/divider";
-import Profile from "../Profile/profile";
-import RouteConfig, { routes } from "../routes/routeConfig";
-import Tabs from "../Tabs/tabs";
-import "./user-profile.css";
+// TODO: Change webpack setup to avoid multiple ../..
+import { getCurrentUserInfo } from "../../../../shared/apis/github-api";
 
+import Divider from "../../../../shared/components/divider/divider";
+import UserBio from "../user-bio/user-bio";
+import { RouteConfig, routes } from "../../../../config/routes";
+import NavBar from "../../../../shared/components/NavBar/NavBar";
+import "./user-profile.css";
 
 const initialState = {
   currentUser: null,
@@ -36,10 +35,7 @@ const UserProfile = () => {
   );
 
   const getCurrentUser = async () => {
-    let url = getUserProfile("NaviMarella");
-    const response = await fetch(url);
-    let userInfo = await response.json();
-
+    let userInfo = await getCurrentUserInfo();
     dispatch({
       type: "LOAD_USER",
       userInfo
@@ -58,16 +54,16 @@ const UserProfile = () => {
   ) : (
     <div className="userprofile_container">
       <div className="userprofile_profile">
-        <Profile userInfo={userInfo} />
+        <UserBio userInfo={userInfo} />
       </div>
 
       <div className="userprofile_info_container">
         <div className="userprofile_options">
-          <Tabs routes={routes}/>
+          <NavBar routes={routes}/>
         </div>
         <Divider />
         <div className="userProfile_info">
-              <RouteConfig routes={routes} userInfo={userInfo}/>
+          <RouteConfig routes={routes} userInfo={userInfo}/>
         </div>
       </div>
     </div>

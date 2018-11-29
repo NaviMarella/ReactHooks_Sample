@@ -1,9 +1,9 @@
 import React from "react";
-import Avatar from "../avatar/avatar";
-import Divider from "../divider/divider";
-import "./profile.css";
+import Avatar from "../../../../shared/components/avatar/avatar";
+import Divider from "../../../../shared/components/divider/divider";
+import "./user-bio.css";
 
-const Profile = ({ userInfo }) => {
+const UserBio = ({ userInfo }) => {
   const { avatar_url: url, name, login, bio, company, location } =
     userInfo || {};
   return !userInfo ? null : (
@@ -21,4 +21,4 @@ const Profile = ({ userInfo }) => {
   );
 };
 
-export default Profile;
+export default UserBio;
