@@ -16,12 +16,12 @@
     text-decoration: none;
 }
 
-.tabs_options li a.active {
-    border-bottom: #4CAF50;
-}
-
 .tabs_options li:hover:not(.active) {
     border: 0px solid #4CAF50;
     border-bottom: 2px solid;
     border-bottom-color: lightblue;
+}
+
+.active {
+    font-weight: bold;
 }

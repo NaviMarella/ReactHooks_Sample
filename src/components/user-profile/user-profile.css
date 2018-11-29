@@ -1,5 +1,6 @@
 .userprofile_container {
   display: flex;
+  margin: 2% 10% 0 4%;
 }
 
 .userprofile_profile {
@@ -11,10 +12,6 @@
   display: flex;
   flex-direction: column;
   flex: 2;
-}
-
-.userprofile_info_container>div {
-  width: 85%;
 }
 
 .userProfile_info {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./tabs.css";
 
 const Tabs = ({ routes }) => {
@@ -11,8 +11,8 @@ const Tabs = ({ routes }) => {
                     routes && routes.map((routeInfo, index) => {
                         const {path, displayName} = routeInfo;
                         return (
-                            <li key={"tab-"+index}>
-                                <Link to={path} >{displayName}</Link>
+                            <li key={"tab-" + index} >
+                                <NavLink to={path} activeClassName="active">{displayName}</NavLink>
                             </li>
                         )
                     })
