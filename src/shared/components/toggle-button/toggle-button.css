@@ -1,0 +1,8 @@
+.toggle_button{
+    font-size: 12px;
+    line-height: 20px;
+    padding: 5px;
+    color: #24292e;
+    font-weight: bold;
+    max-height: 35px;
+}
