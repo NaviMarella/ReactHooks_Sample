@@ -1,11 +1,10 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useReducer, createContext } from "react";
+import { RouteConfig, routes } from "../../../../config/routes";
 // TODO: Change webpack setup to avoid multiple ../..
 import { getCurrentUserInfo } from "../../../../shared/apis/github-api";
-
 import Divider from "../../../../shared/components/divider/divider";
-import UserBio from "../user-bio/user-bio";
-import { RouteConfig, routes } from "../../../../config/routes";
 import NavBar from "../../../../shared/components/NavBar/NavBar";
+import UserBio from "../user-bio/user-bio";
 import "./user-profile.css";
 
 const initialState = {
@@ -27,6 +26,8 @@ const UserProfileReducer = (state, action) => {
       return state;
   }
 };
+
+export const ProfileContext = createContext({});
 
 const UserProfile = () => {
   const [{ currentUser, userInfo, loading }, dispatch] = useReducer(
@@ -52,21 +53,23 @@ const UserProfile = () => {
   return !loading ? (
     <div>Loading....</div>
   ) : (
-    <div className="userprofile_container">
-      <div className="userprofile_profile">
-        <UserBio userInfo={userInfo} />
-      </div>
+    <ProfileContext.Provider value={userInfo}>
+      <div className="userprofile_container">
+        <div className="userprofile_profile">
+          <UserBio userInfo={userInfo} />
+        </div>
 
-      <div className="userprofile_info_container">
-        <div className="userprofile_options">
-          <NavBar routes={routes}/>
-        </div>
-        <Divider />
-        <div className="userProfile_info">
-          <RouteConfig routes={routes} userInfo={userInfo}/>
+        <div className="userprofile_info_container">
+          <div className="userprofile_options">
+            <NavBar routes={routes} userInfo={userInfo}/>
+          </div>
+          <Divider />
+          <div className="userProfile_info">
+            <RouteConfig routes={routes} userInfo={userInfo}/>
+          </div>
         </div>
       </div>
-    </div>
+    </ProfileContext.Provider>
   );
 };
 

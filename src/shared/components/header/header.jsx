@@ -3,9 +3,9 @@ import "./header.css";
 
 const Header = function(){
     return(
-        <header class="main-header">
-            <div class="primary-header">
-                <h2 class="header-title">React Github Project</h2>
+        <header className="main-header">
+            <div className="primary-header">
+                <h2 className="header-title">React Github Project</h2>
             </div>
         </header>
     )

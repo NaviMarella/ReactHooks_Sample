@@ -1,4 +1,4 @@
-.tabs_options ul {
+.nav_options ul {
     display: flex;
     flex-direction: row;
     margin: 0;
@@ -6,17 +6,17 @@
     list-style-type: none;
 }
 
-.tabs_options li {
+.nav_options li {
     padding: 2%;
 }
 
-.tabs_options li a {
+.nav_options li a {
     display: flex;
     color: #000;
     text-decoration: none;
 }
 
-.tabs_options li:hover:not(.active) {
+.nav_options li:hover:not(.active) {
     border: 0px solid #4CAF50;
     border-bottom: 2px solid;
     border-bottom-color: lightblue;

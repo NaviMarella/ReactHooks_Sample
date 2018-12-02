@@ -1,0 +1,9 @@
+.repo_language_color{
+    background-color: #f1e05a;
+    border-radius: 50%;
+    display: inline-block;
+    height: 12px;
+    position: relative;
+    top: 1px;
+    width: 12px;
+}

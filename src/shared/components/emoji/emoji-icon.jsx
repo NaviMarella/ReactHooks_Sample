@@ -1,7 +1,8 @@
 import React from 'react';
 const EmojiIcon = ({label, symbol}) =>{
     const iconstyle = {
-        padding: '2px'
+        paddingRight: '6px',
+        textAlign: 'center'
     };
     return (
         <span

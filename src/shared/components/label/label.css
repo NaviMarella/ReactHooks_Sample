@@ -1,0 +1,14 @@
+.default {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.label_text{
+    margin-top: 4px;
+}
+
+.label_blue_header{
+    font-size: 20px;
+    color: #0366d6;
+}
