@@ -3,7 +3,7 @@ import "./label.css";
 
 const Label = ({name, labelStyle, children}) => {
     return(
-        <div className={["default",`${labelStyle}`].join(" ")}>
+        <div className={["default",`${labelStyle ? labelStyle : ''}`].join(" ")}>
             {children}
             <span className="label_text">{name}</span>
         </div>

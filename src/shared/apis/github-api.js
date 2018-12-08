@@ -5,10 +5,16 @@ const getUserProfile = userName => {
     return `${Base_Url}/users/${userName}`;
 };
 
-
-export const getCurrentUserInfo = async (userName = 'NaviMarella') => {
+export async function getCurrentUserInfo(userName = 'NaviMarella') {
     let url = getUserProfile(userName);
     const response = await fetch(url);
     let userInfo = await response.json();
     return userInfo;
+};
+
+export async function getStarReposInfo(userName = 'NaviMarella') {
+    let url = `${getUserProfile(userName)}/starred`;
+    const response = await fetch(url);
+    let data = await response.json();
+    return data;
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, createContext } from "react";
+import React, { createContext, useEffect, useReducer } from "react";
 import { RouteConfig, routes } from "../../../../config/routes";
 // TODO: Change webpack setup to avoid multiple ../..
 import { getCurrentUserInfo } from "../../../../shared/apis/github-api";
@@ -35,8 +35,8 @@ const UserProfile = () => {
     initialState
   );
 
-  const getCurrentUser = async () => {
-    let userInfo = await getCurrentUserInfo();
+  const getCurrentUser = () => {
+    let userInfo = getCurrentUserInfo();
     dispatch({
       type: "LOAD_USER",
       userInfo
@@ -53,7 +53,7 @@ const UserProfile = () => {
   return !loading ? (
     <div>Loading....</div>
   ) : (
-    <ProfileContext.Provider value={userInfo}>
+    <ProfileContext.Provider value={currentUser}>
       <div className="userprofile_container">
         <div className="userprofile_profile">
           <UserBio userInfo={userInfo} />

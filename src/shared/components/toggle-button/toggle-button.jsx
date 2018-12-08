@@ -3,7 +3,7 @@ import "./toggle-button.css";
 const ToggleButton = ({toggleValues, children, defaultOn = true }) => {
     const [on, setOn] = useState(defaultOn);
     return (
-        <button onClick={() => setOn(!on)} class="toggle_button">
+        <button onClick={() => setOn(!on)} className="toggle_button">
             { children }
             {on ? toggleValues[0] : toggleValues[1]}
         </button>

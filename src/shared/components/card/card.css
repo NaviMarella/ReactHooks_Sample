@@ -1,4 +1,4 @@
-.repo_language_color{
+.repo_language_color {
     background-color: #f1e05a;
     border-radius: 50%;
     display: inline-block;
@@ -6,4 +6,33 @@
     position: relative;
     top: 1px;
     width: 12px;
+}
+
+.card_header-title{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card_body{
+    padding: 15px 0;
+}
+
+.card_body-description {
+    color: #586069 !important;
+    width: 80%;
+    text-align: left;
+    padding: 10px 0 20px 0;
+}
+
+.card_footer{
+    display: flex;
+    flex-direction: row;
+    color: #586069 !important;
+    width: 65%;
+    font-size: 12px !important;
+}
+.card_footer div{
+    padding: 10px;
 }

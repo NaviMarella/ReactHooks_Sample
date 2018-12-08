@@ -1,0 +1,9 @@
+.relative_date{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.relative_date-text{
+    margin-right: 5px;
+}
