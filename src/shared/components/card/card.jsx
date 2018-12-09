@@ -26,12 +26,21 @@ const Card = ({card = {}}) => {
                     </div>
                 )}
                  <div className="card_footer">
-                    <Label name={card.language} >
-                        <span className="repo_language_color"></span>
-                    </Label>
-                    <Label name={card.starCount} >
-                        <EmojiIcon symbol="★" label="star" />
-                    </Label>
+                    { card.language && (
+                        <Label name={card.language} >
+                            <span className="repo_language_color"></span>
+                        </Label>
+                    )}
+                    { card.starCount && (
+                        <Label name={card.starCount} >
+                            <EmojiIcon symbol="★" label="star" />
+                        </Label>
+                    )}
+                    { card.license && (
+                        <Label name={card.license} >
+                            <EmojiIcon symbol="©" label="star" />
+                        </Label>
+                    )}
                     <Label name={card.forkCount} >
                         <EmojiIcon symbol="🚩" label="star" />
                     </Label>

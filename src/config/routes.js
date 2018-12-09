@@ -1,6 +1,7 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
 import StarsPage from './../pages/stars/StarsPage';
+import ReposPage from '../pages/repos/RepoPage';
 
 export const RouteConfig = (props) => {
     const { routes } = props;
@@ -26,7 +27,7 @@ export const routes = [{
         path: '/repos',
         displayName: 'Repositories',
         counterName: "public_repos",
-        component: () => <div>Repositories</div>
+        component: ReposPage
     },
     {
         path: '/stars',

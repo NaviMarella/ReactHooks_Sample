@@ -1,28 +1,29 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ProfileContext } from './../home/components/user-profile/user-profile';
-import { getStarReposInfo } from "../../shared/apis/github-api";
+import { getReposInfo } from "../../shared/apis/github-api";
 import CardList from './../../shared/components/card-list/card-list';
 
-const StarsPage = () => {
+const ReposPage = () => {
     const currentUser = useContext(ProfileContext);
 
-    const [starRepos, setStarRepos] = useState([]);
+    const [repos, setRepos] = useState([]);
 
     const fetchData = async () => {
-        const res = await getStarReposInfo(currentUser);
-        setStarRepos(res);
+        const res = await getReposInfo(currentUser ? currentUser : null);
+        setRepos(res);
     }
+
     useEffect(() => {
         fetchData();
     }, []);
 
-    const getStarCardsInfo = (repos) => {
-        return repos.map( repo => {
+    const getReposCardInfo = (repositories) => {
+        return repositories.map(repo => {
             var repoObj = {};
-            repoObj['headerName'] = repo['full_name'];
+            repoObj['headerName'] = repo['name'];
             repoObj['description'] = repo['description'];
             repoObj['language'] = repo['language'];
-            repoObj['starCount'] = repo['stargazers_count'];
+            repoObj['license'] = repo['license'] ? repo['license']['name']: null;
             repoObj['forkCount'] = repo['forks_count'];
             repoObj['updatedTime'] = repo['updated_at'];
             repoObj['toggleValues'] = ['UnStar', 'Star'];
@@ -31,11 +32,11 @@ const StarsPage = () => {
         });
     }
 
-    return (starRepos.length > 0) ? (
+    return (repos.length > 0) ? (
         <div className="starspage_container">
-            <CardList cards={getStarCardsInfo(starRepos)}/>
+            <CardList cards={getReposCardInfo(repos)}/>
         </div>
     ) : null
 }
 
-export default StarsPage
+export default ReposPage

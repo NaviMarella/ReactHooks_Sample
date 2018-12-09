@@ -35,11 +35,12 @@ const UserProfile = () => {
     initialState
   );
 
-  const getCurrentUser = () => {
-    let userInfo = getCurrentUserInfo();
+  const getCurrentUser = async () => {
+    let userInfo = await getCurrentUserInfo();
     dispatch({
       type: "LOAD_USER",
-      userInfo
+      userInfo,
+      currentUser: userInfo.login
     });
   };
 
@@ -47,7 +48,7 @@ const UserProfile = () => {
     () => {
       getCurrentUser();
     },
-    [currentUser]
+    []
   );
 
   return !loading ? (
