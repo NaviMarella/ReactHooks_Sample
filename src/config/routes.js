@@ -2,12 +2,14 @@ import React from "react";
 import { Redirect, Route } from "react-router-dom";
 import StarsPage from './../pages/stars/StarsPage';
 import ReposPage from '../pages/repos/RepoPage';
+import FollowingPage from '../pages/following/FollowingPage';
+import FollowersPage from '../pages/followers/FollowersPage';
 
 export const RouteConfig = (props) => {
     const { routes } = props;
     return (
         <div>
-            <Route exact path="/" render={() => <Redirect to="/overview" /> } />
+            <Route exact path="/" render={() => <Redirect to="/repos" /> } />
             {
                 routes && routes.map((routeInfo, index) =>
                     <Route exact key={"route-" + index} path={routeInfo.path} component={routeInfo.component}/>
@@ -39,13 +41,13 @@ export const routes = [{
         path: '/followers',
         displayName: 'Followers',
         counterName: "followers",
-        component: () => <div>Followers</div>
+        component: FollowersPage
     },
     {
         path: '/following',
         displayName: 'Following',
         counterName: "following",
-        component: () => <div>Following</div>
+        component: FollowingPage
     },
     {
         path: '/gists',

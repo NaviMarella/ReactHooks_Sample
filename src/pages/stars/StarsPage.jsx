@@ -25,7 +25,7 @@ const StarsPage = () => {
             repoObj['starCount'] = repo['stargazers_count'];
             repoObj['forkCount'] = repo['forks_count'];
             repoObj['updatedTime'] = repo['updated_at'];
-            repoObj['toggleValues'] = ['UnStar', 'Star'];
+            repoObj['toggleValues'] = ['Star', 'UnStar'];
 
             return repoObj;
         });
@@ -33,7 +33,7 @@ const StarsPage = () => {
 
     return (starRepos.length > 0) ? (
         <div className="starspage_container">
-            <CardList cards={getStarCardsInfo(starRepos)}/>
+            <CardList cards={getStarCardsInfo(starRepos)} cardType={'repos'}/>
         </div>
     ) : null
 }

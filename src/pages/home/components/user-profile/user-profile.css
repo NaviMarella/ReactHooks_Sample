@@ -6,6 +6,7 @@
 .userprofile_profile {
   display: flex;
   flex: 1;
+  max-height: 450px;
 }
 
 .userprofile_info_container {
