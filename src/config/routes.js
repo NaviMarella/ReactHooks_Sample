@@ -1,9 +1,18 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { Redirect, Route } from "react-router-dom";
-import StarsPage from './../pages/stars/StarsPage';
-import ReposPage from '../pages/repos/RepoPage';
-import FollowingPage from '../pages/following/FollowingPage';
-import FollowersPage from '../pages/followers/FollowersPage';
+import Loader from "../shared/components/loading/loader";
+const StarsPage = lazy(() => import('./../pages/stars/StarsPage'));
+const ReposPage = lazy(() => import('../pages/repos/RepoPage'));
+const FollowingPage = lazy(() => import('../pages/following/FollowingPage'));
+const FollowersPage = lazy(() => import('../pages/followers/FollowersPage'));
+
+const LazyComponent = ({id, children}) => {
+    return (
+        <Suspense key={id} fallback={<Loader />}>
+            {children}
+        </Suspense>
+    )
+}
 
 export const RouteConfig = (props) => {
     const { routes } = props;
@@ -12,7 +21,7 @@ export const RouteConfig = (props) => {
             <Route exact path="/" render={() => <Redirect to="/repos" /> } />
             {
                 routes && routes.map((routeInfo, index) =>
-                    <Route exact key={"route-" + index} path={routeInfo.path} component={routeInfo.component}/>
+                    <Route exact key={"route-" + index} path={routeInfo.path} component={() => <LazyComponent id={index}><routeInfo.component/></LazyComponent>}/>
                 )
             }
         </div>
