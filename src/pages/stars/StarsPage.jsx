@@ -1,15 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import { ProfileContext } from './../home/components/user-profile/user-profile';
-import { getStarReposInfo } from "../../shared/apis/github-api";
+import { ServiceManager, endpointMapper } from '../../ServiceManager';
 import CardList from './../../shared/components/card-list/card-list';
 
 const StarsPage = () => {
-    const currentUser = useContext(ProfileContext);
-
     const [starRepos, setStarRepos] = useState([]);
 
     const fetchData = async () => {
-        const res = await getStarReposInfo(currentUser);
+        const res = await ServiceManager(endpointMapper.starred);
         setStarRepos(res);
     }
     useEffect(() => {

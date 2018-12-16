@@ -1,15 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import { ProfileContext } from './../home/components/user-profile/user-profile';
-import { getUserFollowerInfo } from "../../shared/apis/github-api";
+import { ServiceManager, endpointMapper } from '../../ServiceManager';
 import CardList from './../../shared/components/card-list/card-list';
 
 const FollowersPage = () => {
-    const currentUser = useContext(ProfileContext);
-
-    const [followers, setFollowers] = useState([]);
+   const [followers, setFollowers] = useState([]);
 
     const fetchData = async () => {
-        const res = await getUserFollowerInfo(currentUser);
+        const res = await ServiceManager(endpointMapper.followers);
         setFollowers(res);
     }
 
