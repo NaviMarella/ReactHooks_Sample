@@ -1,7 +1,7 @@
 
 const Base_Url = "https://api.github.com";
 
-const getUserProfile = userName => {
+export const getUserProfile = userName => {
     let name = userName || 'NaviMarella';
     return `${Base_Url}/users/${name}`;
 };
@@ -45,31 +45,3 @@ export async function getCurrentUserInfo(userName) {
     };
     return data;
 };
-
-export async function getStarReposInfo(userName) {
-     let url = `${getUserProfile(userName)}/starred`;
-     const response = await fetch(url);
-     let data = await response.json();
-     return data;
-};
-
-export async function getReposInfo(userName) {
-    let url = `${getUserProfile(userName)}/repos`;
-    const response = await fetch(url);
-    let data = await response.json();
-    return data;
-};
-
-export async function getUserFollowerInfo(userName) {
-     let url = `${getUserProfile(userName)}/followers`;
-     const response = await fetch(url);
-     let data = await response.json();
-     return data;
-}
-
-export async function getUserFollowingInfo(userName) {
-    let url = `${getUserProfile(userName)}/following`;
-    const response = await fetch(url);
-    let data = await response.json();
-    return data;
-}
