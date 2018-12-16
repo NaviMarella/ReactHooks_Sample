@@ -8,3 +8,5 @@ Also this repo has reusable hooks.
 ---
 
 Please feel free to send a PR, if you have more suggestions.
+
+TODO: Add git authentication, and other features
