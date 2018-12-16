@@ -37,6 +37,7 @@ const UserProfile = () => {
 
   const getCurrentUser = async () => {
     let userInfo = await getCurrentUserInfo();
+    sessionStorage.setItem('currentUser', userInfo.login);
     dispatch({
       type: "LOAD_USER",
       userInfo,
